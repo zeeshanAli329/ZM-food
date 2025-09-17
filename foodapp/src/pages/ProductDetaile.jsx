@@ -47,7 +47,7 @@ const ProductDetaile = () => {
               </p>
 
               {/* Add to cart button */}
-              <button className="mt-6 bg-[#FC8A06] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition">
+              <button className="mt-6 bg-[#FC8A06] text-white px-6 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition cursor-pointer">
                 Add to Cart
               </button>
             </div>
