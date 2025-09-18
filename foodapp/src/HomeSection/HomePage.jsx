@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import Navbar from "./Header/Navbar.jsx";
+import Footer from "../footer/Footer"
 import NavBar from "../header/NavBar";
-// import FetchApi from './FetchApi'
 import FetchApi from '../FetchApi'
 
 
@@ -133,7 +132,9 @@ const HomePage = () => {
               </div>
             </Link>
           ))}
+          
         </div>
+        <Footer />
       </section>
     </div>
   );

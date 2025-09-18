@@ -3,6 +3,7 @@ import NavBar from "../header/NavBar";
 import FetchApi from "../FetchApi";
 
 import { useParams } from "react-router-dom";
+import Footer from "../footer/Footer";
 const ProductDetaile = () => {
   const { foodItems, loading } = FetchApi();
   
@@ -53,9 +54,10 @@ const ProductDetaile = () => {
             </div>
           </div>
         </div>
-      <div className="flex text-white bg-blue-400 w-">
+          <Footer />
+      {/* <div className="flex text-white bg-blue-400 w-">
         <h1>Related products</h1>
-      </div>
+      </div> */}
       </div>
     </>
   );
