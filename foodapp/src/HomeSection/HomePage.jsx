@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../footer/Footer"
+import Footer from "../footer/Footer";
 import NavBar from "../header/NavBar";
-import FetchApi from '../FetchApi'
-
+import FetchApi from "../FetchApi";
+import Cart from "../pages/cart-section/Cart";
 
 const HomePage = () => {
-
-  const { foodItems, loading} = FetchApi();
+  const { foodItems, loading } = FetchApi();
 
   const [search, setSearch] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -25,8 +24,6 @@ const HomePage = () => {
     <div className="bg-[#03081f] min-h-screen flex flex-col items-center">
       {/* Navbar */}
       <NavBar />
-
-
       {/* Hero Section */}
       <section className="w-full mt-24 max-w-[1450px] px-6">
         <div
@@ -125,14 +122,15 @@ const HomePage = () => {
                 className="w-full h-[200px] object-cover"
               />
               <div className="p-4">
-                <p className="font-bold text-lg text-[#fc8a06]">{item.strCategory}</p>
+                <p className="font-bold text-lg text-[#fc8a06]">
+                  {item.strCategory}
+                </p>
                 <p className="line-clamp-2 text-sm text-gray-600">
                   {item.strCategoryDescription}
                 </p>
               </div>
             </Link>
           ))}
-          
         </div>
         <Footer />
       </section>

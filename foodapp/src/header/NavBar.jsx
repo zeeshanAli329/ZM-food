@@ -59,7 +59,7 @@ const NavBar = () => {
                 className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition"
               >
                 {item}
-              </Link>
+                </Link>
             ))}
             <button className="hover:text-black bg-black hover:bg-[white]  px-4 py-2 rounded-full transition cursor-pointer flex gap-3">
               <img src="/images/Male User.svg"></img>
