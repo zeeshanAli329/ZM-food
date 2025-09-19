@@ -43,7 +43,11 @@ const NavBar = () => {
   return (
     <>
       <nav className="w-full max-w-[1450px] bg-[#fc8a06]/100 backdrop-blur fixed top-0 z-50">
-        <div className="max-w-[1450px] mx-auto flex items-center justify-between px-6 lg:px-16 py-3">
+        <div className="max-w-[1450px] mx-auto flex items-center justify-between  px-6 lg:px-16 py-3">
+
+
+
+
           {/* Logo */}
           <Link to="/">
             <img
@@ -52,12 +56,13 @@ const NavBar = () => {
               className="h-16 w-auto"
             />
           </Link>
+          <div className="w-auto flex  gap-6 ">
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex gap-8 text-white ">
+          <div className=" lg:flex gap-8 text-white ">
             <Link
               to="/"
-              className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition"
+              className=" hidden lg:flex hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition font-semibold"
             >
               Home
             </Link>
@@ -66,7 +71,7 @@ const NavBar = () => {
               <Link
                 key={idx}
                 to={`/${item.toLowerCase()}`}
-                className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition"
+                className=" hidden lg:flex hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition font-semibold"
               >
                 {item}
               </Link>
@@ -75,7 +80,7 @@ const NavBar = () => {
             <div className="relative flex items-center">
               <Link
                 to="/cart"
-                className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition flex"
+                className="hover:text-[#03081f] lg:hover:bg-[white] px-4 py-2 rounded-full transition flex "
               >
                 <ShoppingCart className="w-6 h-6" />
               </Link>
@@ -88,42 +93,45 @@ const NavBar = () => {
             </div>
 
             <Link to="/user-account">
-              <button className="hover:text-black bg-black hover:bg-[white]  px-4 py-2 rounded-full transition cursor-pointer flex gap-3">
+              <button className="hidden   hover:text-black bg-black hover:bg-[white]  px-4 py-2 rounded-full transition cursor-pointer lg:flex gap-3">
                 <img src="/images/Male User.svg"></img>
                 Login/Signup
               </button>
             </Link>
           </div>
 
-          {/* Mobile/Tablet Menu Icon */}
+          {/* Mobile-Tablet Menu Icon */}
           <button
-            className="lg:hidden text-white"
+            className="lg:hidden text-white flex justify-center items-center gap-10"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+            >
             <Menu size={28} />
           </button>
         </div>
+        
 
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden bg-[#03081f] text-white flex flex-col px-6 py-3 space-y-3">
             {items.map((item, idx) => (
-              <Link
-                key={idx}
-                to={`/${item.toLowerCase()}`}
-                className="hover:text-[#FC8A06] px-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
+              <Link to="/" className="hover:text-[#FC8A06] px-2 font-semibold">
+                Home
               </Link>
             ))}
             <Link to="/user-account">
+              <button className=" bg-black hover:bg-[white] hover:text-[black] rounded-full py-2 transition cursor-pointer flex w-fit px-2 font-semibold">
+                Manu
+              </button>
+            </Link>
+
+            <Link to="/user-account">
               <button className=" bg-black hover:bg-[white] hover:text-[black] rounded-full py-2 transition cursor-pointer flex w-fit px-2">
-                Login/Signup
+                Login/Signup 
               </button>
             </Link>
           </div>
         )}
+        </div>
       </nav>
     </>
   );

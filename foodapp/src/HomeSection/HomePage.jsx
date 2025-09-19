@@ -132,8 +132,8 @@ const HomePage = () => {
             </Link>
           ))}
         </div>
-        <Footer />
       </section>
+      <Footer />
     </div>
   );
 };
