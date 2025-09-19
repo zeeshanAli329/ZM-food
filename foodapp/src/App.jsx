@@ -1,15 +1,18 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
-import AppRouter from './Router';
+import Router from "./Router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UserLogin from "./auth/loginpage/UserLogin";
+import RegisterUser from "./auth/registerition/RegisterUser";
 
 function App() {
   return (
     <>
       <ToastContainer position="top-right" />
-      <AppRouter/>
- 
+      {/* <UserLogin /> */}
+      {/* <RegisterUser /> */}
+      <Router/>
     </>
   );
 }

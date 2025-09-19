@@ -1,22 +1,43 @@
 import React from "react";
-import ProductDetaile from "./pages/ProductDetaile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProductDetaile from "./pages/ProductDetaile";
 import Cart from "./pages/cart-section/Cart";
 import NavBar from "./header/NavBar";
 import HomePage from "./HomeSection/HomePage";
+import UserLogin from "./auth/loginpage/UserLogin";
+import UserAccount from "./auth/userAccount/UserAccount";
+import RegisterUser from "./auth/registerition/RegisterUser";
+import ForgotPassword from "./auth/password-forgot/ForgotPassword";
 
-const AppRouter = () => {
+const Router = () => {
   return (
-    <Routes>
-      {/* Home page */}
-      <Route path="/" element={<HomePage />} />
+    
+ 
 
-      {/* <Route path='/home' element={<Home />} /> */}
+      <Routes>
+        {/* Account option page */}
+        <Route path="/user-account" element={<UserAccount />} />
+        {/* ----------------forgot-pasword----------- */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
-      {/* Product details page */}
-      <Route path="/product/:category" element={<ProductDetaile />} />
-      <Route path="/cart" element={<Cart />} />
-    </Routes>
+        {/* Login */}
+        <Route path="/login" element={<UserLogin />} />
+
+        {/* Register */}
+        <Route path="/register" element={<RegisterUser />} />
+
+        {/* Home page */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* Product details page */}
+        <Route path="/product/:category" element={<ProductDetaile />} />
+
+        {/* Cart page */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+  
   );
 };
-export default AppRouter;
+
+export default Router;

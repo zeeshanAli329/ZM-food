@@ -10,7 +10,7 @@ const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const items = ["Home", "Menu", "Cart"];
+  const items = ["Menu", "Cart"];
 
   const filterItems = foodItems.filter((item) =>
     item.strCategory.toLowerCase().includes(search.toLowerCase())
@@ -52,6 +52,12 @@ const NavBar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex gap-8 text-white ">
+            <Link
+              to="/"
+              className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition"
+            >
+              Home
+            </Link>
             {items.map((item, idx) => (
               <Link
                 key={idx}
@@ -59,12 +65,15 @@ const NavBar = () => {
                 className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition"
               >
                 {item}
-                </Link>
+              </Link>
             ))}
-            <button className="hover:text-black bg-black hover:bg-[white]  px-4 py-2 rounded-full transition cursor-pointer flex gap-3">
-              <img src="/images/Male User.svg"></img>
-              Login/Signup
-            </button>
+
+            <Link to="/user-account">
+              <button className="hover:text-black bg-black hover:bg-[white]  px-4 py-2 rounded-full transition cursor-pointer flex gap-3">
+                <img src="/images/Male User.svg"></img>
+                Login/Signup
+              </button>
+            </Link>
           </div>
 
           {/* Mobile/Tablet Menu Icon */}
@@ -89,10 +98,11 @@ const NavBar = () => {
                 {item}
               </Link>
             ))}
-            <button className=" bg-black hover:bg-[white] hover:text-[black] rounded-full   py-2  transition cursor-pointer flex w-fit px-2 ">
-              {/* <img src="./images/Male User.svg"></img> */}
-              Login/Signup
-            </button>
+            <Link to="/user-account">
+              <button className=" bg-black hover:bg-[white] hover:text-[black] rounded-full py-2 transition cursor-pointer flex w-fit px-2">
+                Login/Signup
+              </button>
+            </Link>
           </div>
         )}
       </nav>
