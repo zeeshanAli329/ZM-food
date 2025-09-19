@@ -4,7 +4,7 @@ const RegisterUser = () => {
   return (
     <>
       <div className="flex justify-center items-center h-screen bg-gradient-to-r from-orange-400 to-red-400">
-        <form className="bg-white shadow-lg rounded-2xl px-8 py-10 w-full max-w-md">
+        <form className="bg-white shadow-lg rounded-2xl px-8 py-6 w-full max-w-md">
           <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
             Register
           </h2>
@@ -64,18 +64,31 @@ const RegisterUser = () => {
           {/* --Register Button--- */}
           <button
             type="submit"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-medium transition"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white cursor-pointer py-3 rounded-lg font-medium transition"
           >
             Register
           </button>
 
           {/* Login Link---------- */}
-          <p className="text-center text-sm mt-4 text-gray-600">
-            Already have an account?{" "}
-            <Link to="/login" className="text-orange-600 hover:underline font-medium">
-              Login
-            </Link>
-          </p>
+          <div className="flex justify-between">
+            <p className="text-center text-sm mt-4 text-gray-600">
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                className="text-orange-600 hover:underline font-medium"
+              >
+                Login
+              </Link>
+            </p>
+            <p className="text-right text-sm mt-4 text-gray-600">
+              <Link
+                to="/"
+                className="text-orange-600 hover:underline font-medium"
+              >
+                Back to Home
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     </>

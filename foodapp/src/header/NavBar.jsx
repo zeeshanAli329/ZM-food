@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const [loading, setLoading] = useState(true);
@@ -9,8 +11,9 @@ const NavBar = () => {
   const [foodItems, setFoodItems] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart.items);
 
-  const items = ["Menu", "Cart"];
+  const items = ["Menu"];
 
   const filterItems = foodItems.filter((item) =>
     item.strCategory.toLowerCase().includes(search.toLowerCase())
@@ -58,6 +61,7 @@ const NavBar = () => {
             >
               Home
             </Link>
+
             {items.map((item, idx) => (
               <Link
                 key={idx}
@@ -67,6 +71,21 @@ const NavBar = () => {
                 {item}
               </Link>
             ))}
+
+            <div className="relative flex items-center">
+              <Link
+                to="/cart"
+                className="hover:text-[#03081f] hover:bg-[white] px-4 py-2 rounded-full transition flex"
+              >
+                <ShoppingCart className="w-6 h-6" />
+              </Link>
+
+              {cartItems.length > 0 && (
+                <p className="absolute -top-0 -right-[-2px] rounded-full px-1 h-[17px] min-w-[17px] text-[12px] bg-red-600 text-white flex items-center justify-center">
+                  {cartItems.length}
+                </p>
+              )}
+            </div>
 
             <Link to="/user-account">
               <button className="hover:text-black bg-black hover:bg-[white]  px-4 py-2 rounded-full transition cursor-pointer flex gap-3">
