@@ -4,14 +4,29 @@ import { removeFromCart, clearCart } from "../../reduxtookit-cart/CartSlice";
 import NavBar from "../../header/NavBar";
 import Footer from "../../footer/Footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import CartItemRemoveToast from "../../notification/toastsNotification/CartItemRemoveToast";
 
 const Cart = () => {
-  
+  const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
+  const [notification, setNotification] = useState(false);
+
+  const handleRemove = (id) => {
+    dispatch(removeFromCart(id));
+    setNotification("Item removed from cart");
+    setTimeout(() => setNotification(false), 3000);
+  };
+  const handleClear = () => {
+    dispatch(clearCart());
+    setNotification("Cart cleared");
+    setTimeout(() => setNotification(false), 3000);
+  };
 
   return (
     <div className=" flex justify-center items-center mt-40 ">
       <NavBar />
+      {notification && <CartItemRemoveToast message={notification} />}
 
       {cartItems.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-auto w-[600px] bg-gray-100 p-4 rounded-3xl">
@@ -56,7 +71,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <button
-                  onClick={() => dispatch(removeFromCart(item.id))}
+                  onClick={() => handleRemove(item.id)}
                   className="bg-red-500 text-white px-3 py-1 rounded cursor-pointer"
                 >
                   Remove
@@ -64,8 +79,8 @@ const Cart = () => {
               </div>
             ))}
             <button
-              onClick={() => dispatch(clearCart())}
-              className="mt-6 bg-black text-white px-6 py-2 rounded cursor-pointer"
+              onClick={handleClear}
+              className="mt-6 bg-black text-white px-6 py-2 rounded cursor-pointer hover:bg-gray-800"
             >
               Clear Cart
             </button>

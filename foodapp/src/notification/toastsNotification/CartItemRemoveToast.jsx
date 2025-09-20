@@ -1,6 +1,6 @@
 import React from "react";
 
-const Toasts = ({ message }) => {
+const CartItemRemoveToast = ({ message }) => {
   return (
     <div
       className="fixed bottom-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
@@ -22,5 +22,4 @@ const Toasts = ({ message }) => {
     </div>
   );
 };
-
-export default Toasts;
+export default CartItemRemoveToast;

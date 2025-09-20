@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../reduxtookit-cart/CartSlice";
 import { useParams } from "react-router-dom";
 import Footer from "../footer/Footer";
-import Toasts from "../notification/toastsNotification/Toasts";
+import Toasts from "../notification/toastsNotification/ItemAddToast";
 
 const ProductDetaile = () => {
   const { foodItems, loading } = FetchApi();
