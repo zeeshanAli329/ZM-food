@@ -10,28 +10,24 @@ const HomePage = () => {
 
   const [search, setSearch] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const filterItems = foodItems.filter((item) =>
-    item.strCategory.toLowerCase().includes(search.toLowerCase())
+    item.idCategory.toLowerCase().includes(search.toLowerCase())
   );
-  // ----------loading--------------
-  if (loading) {
-    return <h2 className="text-center mt-10">Loading...</h2>;
-  }
+ 
 
   return (
-    <div className="bg-[#03081f] min-h-screen flex flex-col items-center">
-      {/* Navbar */}
-      <NavBar />
+    <div className="bg-[white] min-h-screen flex flex-col items-center">
+  
       {/* Hero Section */}
-      <section className="w-full mt-24 max-w-[1450px] px-6">
+      <section className="w-full mt-30 max-w-[1450px] px-6">
         <div
           className="bg-no-repeat bg-cover bg-center rounded-xl lg:h-[400px]  flex flex-row-reverse items-center justify-between p-6 lg:px-20"
           style={{ backgroundImage: `url("/images/bg-20.svg")` }}
         >
           {/* Left side */}
-          <div className="flex flex-col gap-4 text-white max-w-[500px]">
+          <div className="flex flex-col gap-4 text-white max-w-[500px] lg:w-[40%] md:w-[40%]">
             <h1 className="text-3xl font-bold leading-tight">
               Feast Your Senses,
             </h1>
@@ -40,11 +36,11 @@ const HomePage = () => {
             </h1>
 
             {/* Search */}
-            <div className="hidden md:flex items-center mt-4 bg-white rounded-full overflow-hidden w-full lg:w-[450px] md:w-[450px] max-w-[350px]">
+            <div className="hidden md:flex lg:flex items-center mt-4 bg-white rounded-full  w-full  lg:w-[350px] md:w-[350px] max-w-[350px]">
               <input
                 placeholder="Search items..."
                 type="text"
-                className="flex-1 px-4 py-2 text-gray-700 rounded-l-full focus:outline-none"
+                className="px-4 py-2 text-gray-700 rounded-l-full focus:outline-none"
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
@@ -94,25 +90,25 @@ const HomePage = () => {
                 key={index}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
-                  setSearch(item.strCategory);
+                  setSearch(item.idCategory);
                   setShowDropdown(false);
                 }}
               >
-                {item.strCategory}
+                {item.idCategory}
               </div>
             ))
           ) : (
-            <div className="px-4 py-2 text-gray-500">No items found</div>
+            <div className="px-4 py-2 text-gray-500 mt-100">No items found</div>
           )}
         </div>
       )}
 
       {/* Products  */}
       <section className="max-w-[1450px] w-full px-6 mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1  lg:grid-cols-4 md:grid-cols-4 gap-6">
           {filterItems.map((item, index) => (
             <Link
-              to={`/product/${item.strCategory}`}
+              to={`/product/${item.idCategory}`}
               key={index}
               className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
             >

@@ -25,7 +25,7 @@ const Cart = () => {
 
   return (
     <div className=" flex justify-center items-center mt-40 ">
-      <NavBar />
+    
       {notification && <CartItemRemoveToast message={notification} />}
 
       {cartItems.length === 0 ? (

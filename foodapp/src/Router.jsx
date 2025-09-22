@@ -8,13 +8,16 @@ import UserLogin from "./auth/loginpage/UserLogin";
 import UserAccount from "./auth/userAccount/UserAccount";
 import RegisterUser from "./auth/registerition/RegisterUser";
 import ForgotPassword from "./auth/password-forgot/ForgotPassword";
+import ProductManu from "./pages/manu/ProductManu";
+import ManuItemsDetails from "./pages/manu/manuProductDetails/ManuItemsDetails";
 
 const Router = () => {
   return (
     
  
-
-      <Routes>
+<>
+        <NavBar />
+    <Routes>
         {/* Account option page */}
         <Route path="/user-account" element={<UserAccount />} />
         {/* ----------------forgot-pasword----------- */}
@@ -25,18 +28,25 @@ const Router = () => {
 
         {/* Register */}
         <Route path="/register" element={<RegisterUser />} />
+        {/* -------------manu */}
+
+        <Route path="/manu" element={<ProductManu/>}></Route>
+        {/* ============manu-product------details */}
+        <Route path="/product/:idMeal" element={<ManuItemsDetails />} />
+
 
         {/* Home page */}
         <Route path="/" element={<HomePage />} />
 
         {/* Product details page */}
-        <Route path="/product/:category" element={<ProductDetaile />} />
+        <Route path="/product/:id" element={<ProductDetaile />} />
 
         {/* Cart page */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
   
+</>
   );
 };
 

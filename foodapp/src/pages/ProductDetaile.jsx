@@ -7,15 +7,21 @@ import { useParams } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Toasts from "../notification/toastsNotification/ItemAddToast";
 
+
+
 const ProductDetaile = () => {
   const { foodItems, loading } = FetchApi();
   const dispatch = useDispatch();
-  const { category } = useParams();
+  const { id } = useParams();
   const [notification, setNotification] = useState(false);
+
 
   if (loading) return <h1 className="text-center mt-10">Loading......</h1>;
 
-  const product = foodItems.find((item) => item.strCategory === category);
+  const product = foodItems.find((item) => item.idCategory === id);
+  if (!product) {
+    return <h1 className="text-center mt-40">Product not found</h1>;
+  }
 
   const handleAddToCart = () => {
     dispatch(
@@ -36,7 +42,6 @@ const ProductDetaile = () => {
 
   return (
     <>
-      <NavBar />
       <div className="bg-black h-auto flex justify-center items-center flex-col">
         <div className="bg-black min-h-screen lg:w-[90%] w-full flex justify-center items-center">
           <div className="flex items-center justify-between gap-6 bg-white rounded-sm shadow-lg p-6">
