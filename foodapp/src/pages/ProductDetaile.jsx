@@ -7,20 +7,24 @@ import { useParams } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Toasts from "../notification/toastsNotification/ItemAddToast";
 
-
-
 const ProductDetaile = () => {
   const { foodItems, loading } = FetchApi();
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { strCategory } = useParams();
   const [notification, setNotification] = useState(false);
-
 
   if (loading) return <h1 className="text-center mt-10">Loading......</h1>;
 
-  const product = foodItems.find((item) => item.idCategory === id);
+  const product = foodItems.find(
+    (item) => item?.strCategory?.toLowerCase() === strCategory?.toLowerCase()
+  );
+
   if (!product) {
-    return <h1 className="text-center mt-40">Product not found</h1>;
+    return (
+      <div className="text-center mt-40 text-red-600 font-semibold">
+        Product not found!
+      </div>
+    );
   }
 
   const handleAddToCart = () => {
@@ -43,10 +47,10 @@ const ProductDetaile = () => {
   return (
     <>
       <div className="bg-black h-auto flex justify-center items-center flex-col">
-        <div className="bg-black min-h-screen lg:w-[90%] w-full flex justify-center items-center">
-          <div className="flex items-center justify-between gap-6 bg-white rounded-sm shadow-lg p-6">
-            {/* ------------image-section------------ */}
-            <div className="w-[40%] flex justify-center items-center">
+        <div className="bg-black min-h-screen lg:w-[90%] w-full flex justify-center items-center mt-10">
+          <div className="flex flex-wrap items-center justify-between gap-6 rounded-sm shadow-lg p-6 bg-white">
+            {/* Image Section */}
+            <div className="w-[50%] md:w-[40%] lg:w-[40%] flex justify-center items-center">
               <img
                 src={product.strCategoryThumb}
                 alt={product.strCategory}
@@ -54,9 +58,9 @@ const ProductDetaile = () => {
               />
             </div>
 
-            {/* ------------detail-section------------ */}
-            <div className="w-[50%] text-left">
-              <h1 className="text-2xl font-bold text-[#FC8A06] ">
+            {/* Detail Section */}
+            <div className="md:w-[50%] lg:w-[50%] w-[100%] text-left">
+              <h1 className="text-2xl font-bold text-[#FC8A06]">
                 {product.strCategory}
               </h1>
               <p className="text-gray-600 mt-3 line-clamp-3">
@@ -69,7 +73,7 @@ const ProductDetaile = () => {
 
               <button
                 onClick={handleAddToCart}
-                className="mt-6 bg-[#FC8A06] text-white px-6 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition cursor-pointer"
+                className="mt-6 bg-[#FC8A06] text-white md:px-6 lg:py-2 py-2 px-2 rounded-full font-semibold hover:bg-black hover:text-white transition cursor-pointer"
               >
                 Add to Cart
               </button>

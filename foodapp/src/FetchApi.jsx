@@ -23,7 +23,6 @@ const FetchApi = () => {
   }, []);
 
   return { foodItems, loading };
-
 };
 
 export default FetchApi;

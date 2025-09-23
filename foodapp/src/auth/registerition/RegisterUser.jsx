@@ -1,97 +1,107 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const RegisterUser = () => {
   return (
-    <>
-      <div className="flex justify-center items-center h-screen bg-gradient-to-r from-orange-400 to-red-400">
-        <form className="bg-white shadow-lg rounded-2xl px-8 py-6 w-full max-w-md">
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-            Register
-          </h2>
+    <div className="flex h-screen w-full">
+      {/* Left Section */}
+           <h2 className="text-3xl font-bold text-center mb-8">Register</h2>
 
-          {/* ------------Full Name */}
-          <div className="flex flex-col mb-4">
-            <label className="mb-1 text-sm font-medium text-gray-700">
-              Full Name
-            </label>
-            <input
-              type="text"
-              required
-              placeholder="Enter your full name"
-              className="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
+          {/* ===== Section 1: Inputs ===== */}
+          <div className="w-1/2 bg-black flex justify-center items-center flex-col">
+            {/* Full Name */}
+            <div className="flex flex-col">
+              <label className="mb-1 text-sm font-medium text-gray-400">
+                Full Name
+              </label>
+              <input
+                type="text"
+                required
+                placeholder="Enter your full name"
+                className="px-4 py-3 border border-gray-600 bg-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-500"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col">
+              <label className="mb-1 text-sm font-medium text-gray-400">
+                Email
+              </label>
+              <input
+                type="email"
+                required
+                placeholder="Enter your email"
+                className="px-4 py-3 border border-gray-600 bg-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-500"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="flex flex-col">
+              <label className="mb-1 text-sm font-medium text-gray-400">
+                Password
+              </label>
+              <input
+                type="password"
+                required
+                placeholder="Enter your password"
+                className="px-4 py-3 border border-gray-600 bg-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-500"
+              />
+            </div>
+
+            {/* Confirm Password */}
+            <div className="flex flex-col">
+              <label className="mb-1 text-sm font-medium text-gray-400">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                required
+                placeholder="Confirm your password"
+                className="px-4 py-3 border border-gray-600 bg-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-500"
+              />
+            </div>
           </div>
 
-          {/* Email--------------------------------------- */}
-          <div className="flex flex-col mb-4">
-            <label className="mb-1 text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              className="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-          </div>
+      {/* Right Section */}
+      <div className="w-1/2 bg-black flex justify-center items-center">
+        <form className="bg-[#1c1c1c] shadow-lg rounded-2xl px-8 py-10 w-full max-w-md text-white flex flex-col justify-between">
+          {/* Title */}
 
-          {/* Password---- */}
-          <div className="flex flex-col mb-4">
-            <label className="mb-1 text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input
-              type="password"
-              required
-              placeholder="Enter your password"
-              className="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-          </div>
+          {/* ===== Section 2: Button + Links ===== */}
+          <div>
+            {/* Register Button */}
+            <button
+              type="submit"
+              className="w-full bg-[#8B0000] hover:bg-red-800 text-white py-3 rounded-lg font-semibold transition"
+            >
+              REGISTER
+            </button>
 
-          {/* Confirm Password---- */}
-          <div className="flex flex-col mb-6">
-            <label className="mb-1 text-sm font-medium text-gray-700">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              required
-              placeholder="Confirm your password"
-              className="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-          </div>
-
-          {/* --Register Button--- */}
-          <button
-            type="submit"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white cursor-pointer py-3 rounded-lg font-medium transition"
-          >
-            Register
-          </button>
-
-          {/* Login Link---------- */}
-          <div className="flex justify-between">
-            <p className="text-center text-sm mt-4 text-gray-600">
-              Already have an account?{" "}
-              <Link
-                to="/login"
-                className="text-orange-600 hover:underline font-medium"
-              >
-                Login
-              </Link>
-            </p>
-            <p className="text-right text-sm mt-4 text-gray-600">
-              <Link
-                to="/"
-                className="text-orange-600 hover:underline font-medium"
-              >
-                Back to Home
-              </Link>
-            </p>
+            {/* Links */}
+            <div className="flex justify-between mt-6 text-sm">
+              <p className="text-gray-400">
+                Already have an account?{" "}
+                <Link
+                  to="/login"
+                  className="text-red-500 hover:underline font-medium"
+                >
+                  Login
+                </Link>
+              </p>
+              <p>
+                <Link
+                  to="/"
+                  className="text-gray-400 hover:text-red-500 transition font-medium"
+                >
+                  Back to Home
+                </Link>
+              </p>
+            </div>
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
+
 export default RegisterUser;

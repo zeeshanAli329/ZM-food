@@ -1,74 +1,71 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const UserLogin = () => {
   return (
-    <>
-    
-     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-orange-400 to-red-400">
+    <div className="flex justify-center items-center h-screen bg-[black] ">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-4xl px-6 bg-[#1c1816] ">
+       
+          <Link to="/" className="flex text-[white] rounded-3xl border-2 border-[red] hover:bg-[red] cursor-pointer p-2 ">
+            <FaArrowLeft />
+          </Link>
       
-    <form
-        onSubmit={""}
-        className="bg-white shadow-lg rounded-2xl px-8 py-10 w-full max-w-md "
-        >
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          Login
-        </h2>
 
-        {/* Email */}
-        <div className="flex flex-col mb-4">
-          <label className="mb-1 text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            required
-            placeholder="Enter your email"
-            className="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
+        {/* Left Side - Image/GIF */}
+        <div className="flex justify-center items-center w-full md:w-1/2">
+          <img
+            src="https://www.kfcpakistan.com/static/media/login-animation.857cb4f842a7a27eed63.gif"
+            alt="Login Animation"
+            className="w-80"
+          />
         </div>
 
-        {/* Password */}
-        <div className="flex flex-col mb-2 relative">
-          <label className="mb-1 text-sm font-medium text-gray-700">
-            Password
-          </label>
-          <input
-            type="password"
-            required
-            placeholder="Enter your password"
-            className="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-     
-        </div>
+        {/* Right Side - Login Form */}
+        <div className="w-full md:w-1/2 text-white">
+          <h1 className="text-3xl font-bold mb-6">Welcome!</h1>
 
-        {/* Forgot Password */}
-        <div className="flex justify-end mb-4">
-          <Link
-            to="/forgot-password"
-            className="text-sm text-orange-600 hover:underline"
+          {/* Phone Number Input */}
+          <div className="mb-4">
+            <label className="block text-gray-300 text-sm mb-2">
+              Phone Number (3XXXXXXXXX)
+            </label>
+            <div className="flex items-center bg-[#1c1c1c] rounded-lg px-3 py-2">
+              <span className="text-lg font-semibold">+92</span>
+              <input
+                type="tel"
+                placeholder="3XXXXXXXXX"
+                className="ml-2 flex-1 bg-transparent outline-none text-white placeholder-gray-500"
+              />
+            </div>
+          </div>
+
+          {/* Login Button */}
+          <button className="w-full bg-[#8B0000] hover:bg-red-800 text-white py-3 rounded-lg font-semibold transition mb-4">
+            LOGIN
+          </button>
+
+          {/* Google Login */}
+          <button className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold flex justify-center items-center gap-2">
+            <span className="bg-white text-red-600 px-2 py-1 rounded-full font-bold">
+              G
+            </span>
+            LOGIN WITH GOOGLE
+          </button>
+
+          {/* Back Button */}
+          <div className="absolute top-6 left-6">
+            <Link
+              to="/"
+              className="w-10 h-10 flex justify-center items-center bg-red-600 rounded-full"
             >
-            Forgot Password?
-          </Link>
+              <span className="text-white text-xl">←</span>
+            </Link>
+          </div>
         </div>
-
-        {/* Login Button */}
-        <button
-          type="submit"
-          className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-medium transition cursor-pointer"
-          >
-          Login
-        </button>
-
-        {/* Register Link */}
-        <p className="text-center text-sm mt-4 text-gray-600">
-          Don’t have an account?
-          <Link to="/register" className="text-orange-600 hover:underline font-medium">
-            Register
-          </Link>
-        </p>
-      </form>
+      </div>
     </div>
-            
-    </>
   );
 };
+
 export default UserLogin;

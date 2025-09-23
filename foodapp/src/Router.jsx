@@ -16,6 +16,8 @@ const Router = () => {
     
  
 <>
+        <div className=" bg-black">
+
         <NavBar />
     <Routes>
         {/* Account option page */}
@@ -30,7 +32,7 @@ const Router = () => {
         <Route path="/register" element={<RegisterUser />} />
         {/* -------------manu */}
 
-        <Route path="/manu" element={<ProductManu/>}></Route>
+        <Route path="/manu" element={<ProductManu/>}/>
         {/* ============manu-product------details */}
         <Route path="/product/:idMeal" element={<ManuItemsDetails />} />
 
@@ -39,13 +41,14 @@ const Router = () => {
         <Route path="/" element={<HomePage />} />
 
         {/* Product details page */}
-        <Route path="/product/:id" element={<ProductDetaile />} />
+        <Route path="/product/:strCategory" element={<ProductDetaile />} />
 
         {/* Cart page */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
   
+        </div>
 </>
   );
 };

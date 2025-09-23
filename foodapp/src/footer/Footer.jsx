@@ -1,97 +1,87 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaPinterestP,
-  FaYoutube,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <>
-      <div className="flex w-full  text-white items-center justify-center  mt-20 ">
-     
-
-          <footer className="bg-[#1f1f1f] text-white py-6 w-[100%] mt-10 ">
-            {/* Social Links */}
-            <div className="lg:flex justify-center space-x-8 mb-6 hidden">
-              <a
-                href="#"
-                className="flex items-center space-x-2 hover:text-[#FC8A06]"
-              >
-                <FaFacebookF />
-                <span className="font-semibold">FACEBOOK</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center space-x-2 hover:text-[#FC8A06]"
-              >
-                <FaInstagram />
-                <span className="font-semibold">INSTAGRAM</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center space-x-2 hover:text-[#FC8A06]"
-              >
-                <FaPinterestP />
-                <span className="font-semibold">PINTEREST</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center space-x-2 hover:text-[#FC8A06]"
-              >
-                <FaYoutube />
-                <span className="font-semibold">YOUTUBE</span>
-              </a>
-              <a
-                href="#"
-                className="flex items-center space-x-2 hover:text-[#FC8A06]"
-              >
-                <FaEnvelope />
-                <span className="font-semibold">EMAIL</span>
-              </a>
-            </div>
-
-            {/* Divider */}
-            <div className="border-t border-gray-700 mx-10"></div>
-
-
-            {/* Back to Top */}
-            <div className="mt-4 text-center text-[#FC8A06]">
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="flex items-center justify-center mx-auto space-x-2 text-[#FC8A06] hover:text-white transition cursor-pointer"
-              >
-                <span className="text-lg">↑</span>
-                <span className="font-semibold text-sm">BACK TO TOP</span>
-              </button>
-            </div>
-            <div className="flex flex-col items-center mt-6 gap-5">
-
-
-            <h1 className="font-semibold text-[20px]">
-              Subscribe to our Mailing List
-            </h1>
-            <div className="flex bg-white rounded-full gap-2  mb-20 ">
-              <input
-                className="flex-1 px-4 py-2 text-gray-700 rounded-l-full focus:outline-none"
-                type="email"
-                placeholder="Enter Your email"
-                ></input>
-              <button className="bg-[#FC8A06] cursor-pointer  text-white px-6 py-2 rounded-full">
-                Join Now
-              </button>
-            </div>
-                </div>
-            {/* Copyright */}
-            <div className="text-center text-gray-400 text-sm">
-              <p>Copyright © 🆉🅼 2025. All Rights Reserved.</p>
-            </div>
-          </footer>
+    <footer className="bg-[#1f1f1f] text-white py-10 px-6 lg:px-20 w-full mt-10">
+       <div className="flex flex-col items-center mb-6 md:mb-0 ">
+          <h1 className="text-3xl font-bold text-red-600 mb-3">KFC</h1>
+          <div className="flex space-x-4">
+            <a href="#">
+              <FaYoutube size={30} className="hover:text-red-500" />
+            </a>
+            <a href="#">
+              <FaInstagram size={30} className="hover:text-pink-500" />
+            </a>
+            <a href="#">
+              <FaFacebookF size={30} className="hover:text-blue-500" />
+            </a>
+          </div>
         </div>
-     
-    </>
+      {/* Top Row: Logo + Social + Links + App Store */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 ">
+        {/* Left Links */}
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-10 lg:gap-10 gap-3 mb-6 md:mb-0 ">
+          <div className="space-y-3">
+            <a href="#" className="block hover:text-[red]">
+              About Us
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Mitao Bhook
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Mitao Bhook - Scholarship
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Privacy Policy
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Careers
+            </a>
+          </div>
+          <div className="space-y-3">
+            <a href="#" className="block hover:text-[red]">
+              Contact Us
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Store Locator
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Track Order
+            </a>
+            <a href="#" className="block hover:text-[red]">
+              Terms & Conditions
+            </a>
+          </div>
+        </div>
+
+      
+
+        <div className="flex flex-col space-y-3 items-center md:items-end md:w-[20%]  w-[100%]">
+          <img
+            src="/images/app-store.png"
+            alt="App Store"
+            className="h-12 md:w-[90%] w-[76%]  lg:mr-2"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+            alt="Google Play"
+            className="h-12 w-full"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 border-t border-gray-700 pt-6">
+        <p>2025 KFC. All rights reserved</p>
+        <p className="mt-2 md:mt-0">
+          <span className="text-red-500 font-semibold">Powered by </span>
+          <a href="#" className="underline hover:text-white">
+            SimpleX Technology Solutions
+          </a>
+        </p>
+      </div>
+    </footer>
   );
 };
+
 export default Footer;
